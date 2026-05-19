@@ -1,37 +1,23 @@
 import { useEffect } from "react";
 
-/**
- * useAnimations
- *
- * Wires up ALL site animations with pure vanilla JS:
- *  1. Scroll progress bar (#ds-progress)
- *  2. Intersection Observer scroll reveal (.ds-reveal)
- *  3. Hero element classes (already set via CSS — just ensures DOM is ready)
- *
- * Call once in App.jsx or any top-level component.
- * Safe to call multiple times — cleans up on unmount.
- */
 export default function useAnimations() {
     useEffect(() => {
-        /* ── 1. Inject progress bar element ──────────────── */
+        /* Progress bar */
         let bar = document.getElementById("ds-progress");
         if (!bar) {
             bar = document.createElement("div");
             bar.id = "ds-progress";
             document.body.prepend(bar);
         }
-
-        /* ── 2. Scroll progress update ────────────────────── */
         const updateProgress = () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            bar.style.width = pct + "%";
+            const top = window.scrollY;
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.width = (docH > 0 ? (top / docH) * 100 : 0) + "%";
         };
         window.addEventListener("scroll", updateProgress, { passive: true });
         updateProgress();
 
-        /* ── 3. Intersection Observer for .ds-reveal ─────── */
+        /* Observer */
         const io = new IntersectionObserver(
             (entries) => {
                 entries.forEach((e) => {
@@ -40,24 +26,41 @@ export default function useAnimations() {
                         io.unobserve(e.target);
                     }
                 });
-            }, { threshold: 0.12 }
+            }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
         );
 
-        // Observe all existing + future elements
-        const observe = () => {
-            document.querySelectorAll(".ds-reveal:not(.ds-visible)")
-                .forEach((el) => io.observe(el));
+        /* Observe function — can be called multiple times safely */
+        const scan = () => {
+            document.querySelectorAll(".ds-reveal:not(.ds-visible)").forEach((el) => io.observe(el));
         };
-        observe();
 
-        // Re-observe after route changes (MutationObserver)
-        const mo = new MutationObserver(observe);
-        mo.observe(document.body, { childList: true, subtree: true });
+        /* Initial scan */
+        scan();
+
+        /* Re-scan at 100ms, 500ms, 1000ms to catch late-rendered elements */
+        const t1 = setTimeout(scan, 100);
+        const t2 = setTimeout(scan, 500);
+        const t3 = setTimeout(scan, 1000);
+        const t4 = setTimeout(scan, 2000);
+
+        /* MutationObserver — but only watch childList (no attribute loop) */
+        const mo = new MutationObserver((mutations) => {
+            let needsScan = false;
+            for (const m of mutations) {
+                if (m.addedNodes.length > 0) { needsScan = true; break; }
+            }
+            if (needsScan) scan();
+        });
+        mo.observe(document.body, { childList: true, subtree: true, attributes: false });
 
         return () => {
             window.removeEventListener("scroll", updateProgress);
             io.disconnect();
             mo.disconnect();
+            clearTimeout(t1);
+            clearTimeout(t2);
+            clearTimeout(t3);
+            clearTimeout(t4);
         };
     }, []);
 }
