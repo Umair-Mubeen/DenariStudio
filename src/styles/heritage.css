@@ -1,0 +1,461 @@
+/* ═══════════════════════════════════════════════════════════
+   HERITAGE STYLES — Pakistani Cultural Theme
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── HERITAGE MODE — palette swap ───────────────────────── */
+html.heritage-mode {
+  --p:       #0f3d2e;   /* Forest green — flag */
+  --a:       #c89b1f;   /* Mustard gold */
+  --a2:      #a0871c;
+  --bg:      #fdf6e3;   /* Cream — Ajrak cotton */
+  --bgalt:   #f5ebd1;
+  --tx:      #3d2914;
+  --txl:     #8b6f47;
+  --hd:      #0f3d2e;
+  --bd:      #e0d4b0;
+  --gr:      linear-gradient(135deg,#0f3d2e 0%,#1b4332 50%,#0a2818 100%);
+}
+
+html.heritage-mode body {
+  background: var(--bg);
+  color: var(--tx);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROVINCES SHOWCASE
+   ═══════════════════════════════════════════════════════════ */
+.heritage-section { position: relative; padding: 80px 0; overflow: hidden; }
+
+/* Tabs */
+.provinces-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.province-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: #fff;
+  border: 2px solid var(--bd);
+  border-radius: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--txl);
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.22,1,.36,1);
+  box-shadow: 0 2px 8px rgba(55,81,126,.05);
+}
+.province-tab:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(55,81,126,.12); }
+.province-tab.active { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(55,81,126,.18); }
+.province-icon { font-size: 1.3rem; line-height: 1; }
+
+/* Province card */
+.province-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 56px;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.22);
+  transition: background .6s cubic-bezier(.22,1,.36,1);
+}
+.province-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .province-card { padding: 36px 24px; }
+  .province-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.province-tagline {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 5px 16px;
+  border-radius: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  backdrop-filter: blur(8px);
+}
+.province-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.province-quote {
+  font-size: .95rem;
+  font-style: italic;
+  opacity: .9;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  border-left: 3px solid rgba(255,255,255,.35);
+  padding-left: 14px;
+}
+
+.province-greeting {
+  background: rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.greeting-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 5px;
+}
+.greeting-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: .92rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.cities-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 12px;
+  opacity: .85;
+}
+.cities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.city-pill {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: background .3s, transform .25s;
+}
+.city-pill:hover { background: rgba(255,255,255,.28); transform: translateY(-2px); }
+
+/* Right side panel */
+.province-side {
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+.province-big-icon {
+  font-size: 4.5rem;
+  margin-bottom: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.25));
+}
+.famous-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .7;
+  margin-bottom: 10px;
+}
+.province-famous ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+.province-famous li {
+  padding: 6px 0;
+  font-size: .85rem;
+  border-bottom: 1px dashed rgba(255,255,255,.15);
+}
+.province-famous li:last-child { border-bottom: none; }
+.province-capital {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  font-size: .85rem;
+}
+.province-capital span { opacity: .65; }
+.province-capital strong { font-weight: 700; margin-left: 6px; }
+
+/* Decorative corner ornaments — Ajrak inspired */
+.province-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255,255,255,.15);
+  pointer-events: none;
+}
+.province-corner-tl { top: 16px; left: 16px;     border-right: none; border-bottom: none; border-top-left-radius: 12px; }
+.province-corner-tr { top: 16px; right: 16px;    border-left: none;  border-bottom: none; border-top-right-radius: 12px; }
+.province-corner-bl { bottom: 16px; left: 16px;  border-right: none; border-top: none;    border-bottom-left-radius: 12px; }
+.province-corner-br { bottom: 16px; right: 16px; border-left: none;  border-top: none;    border-bottom-right-radius: 12px; }
+
+/* ═══════════════════════════════════════════════════════════
+   PAKISTAN MAP
+   ═══════════════════════════════════════════════════════════ */
+.map-section { padding: 80px 0; }
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 30px;
+}
+@media (max-width: 768px) { .map-layout { grid-template-columns: 1fr; } }
+
+.map-svg-wrap {
+  background: linear-gradient(135deg,#0f3d2e 0%,#1b4332 100%);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(15,61,46,.3);
+}
+.pak-map {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  filter: drop-shadow(0 8px 22px rgba(0,0,0,.18));
+}
+.pak-map text { pointer-events: none; }
+
+.map-info { padding: 0 10px; }
+
+.map-stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.map-stat {
+  text-align: center;
+  padding: 18px 12px;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(55,81,126,.06);
+}
+.map-stat-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--a);
+  line-height: 1;
+}
+.map-stat-lbl {
+  font-family: 'Raleway', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--txl);
+  margin-top: 6px;
+}
+
+.map-active-info {
+  background: var(--bgalt);
+  border-radius: 12px;
+  padding: 22px;
+  border-left: 4px solid var(--a);
+  margin-bottom: 24px;
+  min-height: 90px;
+}
+.map-region-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--hd);
+  margin-bottom: 6px;
+  transition: color .3s;
+}
+.map-region-cities {
+  font-size: .85rem;
+  color: var(--txl);
+  line-height: 1.65;
+}
+
+.map-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--tx);
+  cursor: pointer;
+  transition: background .25s;
+}
+.legend-item:hover { background: var(--bgalt); }
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NATIONAL DAY BANNER
+   ═══════════════════════════════════════════════════════════ */
+.national-day-banner {
+  background: linear-gradient(90deg,#01411c 0%,#0f3d2e 50%,#01411c 100%);
+  background-size: 200% 100%;
+  animation: gradientFlow 8s ease infinite;
+  color: #fff;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  box-shadow: 0 4px 16px rgba(15,61,46,.25);
+}
+@keyframes gradientFlow { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+.national-day-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ndb-flag { font-size: 1.3rem; animation: wiggle 3s ease-in-out infinite; }
+.ndb-emoji { font-size: 1.2rem; }
+.ndb-text {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: .9rem;
+}
+.ndb-text strong { font-weight: 700; letter-spacing: .03em; }
+.ndb-text span { opacity: .85; }
+.ndb-close {
+  background: rgba(255,255,255,.18);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: .7rem;
+  cursor: pointer;
+  transition: background .25s;
+}
+.ndb-close:hover { background: rgba(255,255,255,.32); }
+
+/* ═══════════════════════════════════════════════════════════
+   HERITAGE MODE TOGGLE
+   ═══════════════════════════════════════════════════════════ */
+.heritage-toggle {
+  position: fixed;
+  bottom: 158px;
+  right: 24px;
+  z-index: 996;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 2px solid var(--bd);
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(55,81,126,.18);
+  transition: all .3s cubic-bezier(.22,1,.36,1);
+  font-family: 'Raleway', sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--tx);
+}
+.heritage-toggle:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(55,81,126,.25); }
+.heritage-toggle.on {
+  background: linear-gradient(135deg,#01411c,#0f3d2e);
+  color: #fff;
+  border-color: transparent;
+}
+.heritage-icon { font-size: 1rem; }
+@media (max-width: 480px) {
+  .heritage-toggle { padding: 10px; bottom: 152px; }
+  .heritage-label { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER CITY STRIP
+   ═══════════════════════════════════════════════════════════ */
+.cities-footer-strip {
+  background: linear-gradient(90deg,rgba(15,61,46,.05),rgba(200,155,31,.05),rgba(15,61,46,.05));
+  border-top: 1px solid var(--bd);
+  border-bottom: 1px solid var(--bd);
+  padding: 18px 0;
+  overflow: hidden;
+}
+.cities-track {
+  display: flex;
+  gap: 28px;
+  animation: marqueeScroll 30s linear infinite;
+  white-space: nowrap;
+  font-family: 'Raleway', sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--tx);
+}
+.cities-track span { display: inline-flex; align-items: center; gap: 6px; }
+.cities-track .city-flag { font-size: .9rem; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER ENHANCEMENTS — Province pride
+   ═══════════════════════════════════════════════════════════ */
+.footer-tagline-pk {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-size: .78rem;
+  color: rgba(255,255,255,.42);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-tagline-pk .pk-flag { font-size: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   HERITAGE PROVINCE CARD — section copy text colors
+   (override default sec-dark behaviour inside coloured cards)
+   ═══════════════════════════════════════════════════════════ */
+.province-card .province-content,
+.province-card .province-side {
+  color: #fff;
+}
+
+/* Smooth transition between province cards */
+.province-card {
+  animation: fadeUp .6s cubic-bezier(.22,1,.36,1);
+}

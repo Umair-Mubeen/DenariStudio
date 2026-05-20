@@ -1,0 +1,21 @@
+{
+  "name": "DenariStudio",
+  "short_name": "DenariStudio",
+  "description": "Pakistan's Premium Digital Agency",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#37517e",
+  "theme_color": "#37517e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

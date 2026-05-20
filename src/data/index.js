@@ -220,8 +220,8 @@ export const TESTIMONIALS = [{
 // ─────────────────────────────────────────────────────────────
 export const CONTACT_INFO = [
     { icon: "📍", label: "Location", val: "Karachi, Sindh, Pakistan" },
-    { icon: "📧", label: "Email Us", val: "hello@denaristudio.pk" },
-    { icon: "💬", label: "WhatsApp", val: "+92 300 000 0000" },
+    { icon: "📧", label: "Email Us", val: "umair.mubeen.ccir@gmail.com " },
+    { icon: "💬", label: "WhatsApp", val: "+92 3332482742" },
     { icon: "🕐", label: "Office Hours", val: "Mon–Sat, 10am–8pm PKT" },
 ];
 
@@ -231,7 +231,7 @@ export const CONTACT_INFO = [
 export const FOOTER_LINKS = {
     Services: ["Web Development", "Logo Design", "Social Media Marketing", "Stationery Design", "SEO", "Video Animation"],
     Company: ["About Us", "Our Work", "Reviews", "Pricing", "Contact Us"],
-    Contact: ["Karachi, Pakistan", "hello@denaristudio.pk", "+92 300 000 0000", "WhatsApp Us"],
+    Contact: ["Karachi, Pakistan", "umair.mubeen.ccir@gmail.com ", "+92 3332482742", "WhatsApp Us"],
 };
 
 // ─────────────────────────────────────────────────────────────

@@ -3,9 +3,81 @@
 
 <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Viewport & PWA -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Denari Studio</title>
+    <meta name="theme-color" content="#37517e" />
+
+    <!-- SEO basics (overridden per-page by react-helmet-async) -->
+    <title>DenariStudio — Pakistan's Premium Digital Agency</title>
+    <meta name="description" content="Pakistan's premium full-service digital agency. Web development, logo design, SEO, social media marketing, video animation — all in PKR pricing." />
+    <meta name="keywords" content="web development pakistan, web design karachi, logo design lahore, SEO pakistan, digital agency pakistan, denaristudio" />
+    <meta name="author" content="DenariStudio" />
+    <link rel="canonical" href="https://denari-studio.netlify.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://denari-studio.netlify.app/" />
+    <meta property="og:title" content="DenariStudio — Pakistan's Premium Digital Agency" />
+    <meta property="og:description" content="Web development, logo design, SEO, and social media marketing for Pakistani businesses. PKR pricing, local team, global quality." />
+    <meta property="og:image" content="https://denari-studio.netlify.app/og-image.jpg" />
+    <meta property="og:locale" content="en_PK" />
+    <meta property="og:site_name" content="DenariStudio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DenariStudio — Pakistan's Premium Digital Agency" />
+    <meta name="twitter:description" content="Web development, logo design, SEO, and social media marketing for Pakistani businesses." />
+    <meta name="twitter:image" content="https://denari-studio.netlify.app/og-image.jpg" />
+
+    <!-- Geo (Local SEO) -->
+    <meta name="geo.region" content="PK-SD" />
+    <meta name="geo.placename" content="Karachi, Pakistan" />
+    <meta name="geo.position" content="24.8607;67.0011" />
+    <meta name="ICBM" content="24.8607, 67.0011" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Theme flash prevention (runs BEFORE React mounts) -->
+    <script>
+        try {
+            if (localStorage.getItem("ds-theme") === "dark") document.documentElement.classList.add("dark");
+            if (localStorage.getItem("ds-heritage") === "on") document.documentElement.classList.add("heritage-mode");
+        } catch (e) {}
+    </script>
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DenariStudio",
+            "url": "https://denari-studio.netlify.app",
+            "description": "Pakistan's premium full-service digital agency",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Karachi",
+                "addressRegion": "Sindh",
+                "addressCountry": "PK"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+92-300-000-0000",
+                "contactType": "Customer Service",
+                "areaServed": "PK",
+                "availableLanguage": ["English", "Urdu"]
+            }
+        }
+    </script>
 </head>
 
 <body>
